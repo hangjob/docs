@@ -1,0 +1,22 @@
+{
+  "name": "egg-example",
+  "version": "1.0.0",
+  "description": "this is egg",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "egg-bin dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "egg": "^2.29.4",
+    "egg-mysql": "^3.0.0",
+    "egg-valparams": "^1.4.5",
+    "koa-is-json": "^1.0.0",
+    "zlib": "^1.0.5"
+  },
+  "devDependencies": {
+    "egg-bin": "^4.16.2"
+  }
+}
