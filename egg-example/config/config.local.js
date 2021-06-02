@@ -16,6 +16,7 @@ module.exports = appInfo => {
         },
         valparams:{
             locale    : 'zh-cn',
+            widelyUndefined:true, // 开启后，会把空字符串，NaN,null 这些转成 undefined，将这些异常的数据进行了统一，方便后续处理
             throwError: false  // 表示是否开启参数验证
         },
         mysql:{

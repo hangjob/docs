@@ -4,4 +4,5 @@ module.exports = app => {
     router.get('/user/:id', controller.home.user);
     router.get('/user/:id/:name', controller.home.userInfo);
     router.get('/create', controller.home.create);
+    router.get(/^\/package\/([\w-.]+\/[\w-.]+)$/, controller.home.package);
 };

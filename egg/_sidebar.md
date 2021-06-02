@@ -3,7 +3,7 @@
   * [快速开始](/egg/start.md)
   
 * 路由
-  * [创建路由](/egg/start.md)
+  * [创建路由](/egg/router.md)
   
 * 控制器
   * [创建控制器](zh-cn/quickstart.md)

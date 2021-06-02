@@ -1,5 +1,5 @@
 ### Egg.js 是什么?
-Egg.js 为企业级框架和应用而生，我们希望由 Egg.js 孕育出更多上层框架，帮助开发团队和开发人员降低开发和维护成本
+[Egg.js](https://eggjs.org/zh-cn/intro/quickstart.html?_blank) 为企业级框架和应用而生，我们希望由 Egg.js 孕育出更多上层框架，帮助开发团队和开发人员降低开发和维护成本
 
 ### Egg.js 与 Koa
 Node.js 是一个异步的世界，官方 API 支持的都是 callback 形式的异步编程模型，这会带来许多问题，例如
