@@ -12,6 +12,7 @@
   "dependencies": {
     "egg": "^2.29.4",
     "egg-mysql": "^3.0.0",
+    "egg-validate": "^2.0.2",
     "egg-valparams": "^1.4.5",
     "koa-is-json": "^1.0.0",
     "zlib": "^1.0.5"

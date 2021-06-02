@@ -1,5 +1,5 @@
 module.exports = app => {
-    const {validator} = app;
+    const { validator } = app;
     // 校验用户名是否正确
     // https://www.shuzhiduo.com/A/WpdKQM4NJV/
     validator.addRule('userName', (rule, value) => {
