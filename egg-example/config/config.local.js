@@ -30,7 +30,7 @@ module.exports = appInfo => {
                 // 端口号
                 port: '3306',
                 // 用户名
-                user: 'itnavs',
+                user: 'root2', // root2 itnavs
                 // 密码
                 password: '123456',
                 // 数据库名
@@ -40,6 +40,13 @@ module.exports = appInfo => {
             app: true,
             // 是否加载到 agent 上，默认关闭
             agent: false,
+        },
+        mode: 'file', // 上传/接受文件,
+        view:{
+            defaultViewEngine: 'nunjucks',
+            mapping: {
+                '.html': 'nunjucks' //左边写成.html后缀，会自动渲染.html文件
+            },
         }
     };
 };

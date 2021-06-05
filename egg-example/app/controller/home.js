@@ -22,6 +22,18 @@ class HomeController extends baseController {
         ctx.body = `package:${ctx.params[0]}`;
     }
 
+    async customValidate() {
+        const {ctx} = this;
+        console.log(ctx.query)
+        try {
+            ctx.validate({name: 'userName'}, ctx.query);
+        } catch (error) {
+            ctx.body = error;
+            return;
+        }
+        ctx.body = `验证通过:${ctx.query.name}`;
+    }
+
     async create() {
         const {ctx, service} = this;
         const createRule = {

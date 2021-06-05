@@ -14,6 +14,8 @@
     "egg-mysql": "^3.0.0",
     "egg-validate": "^2.0.2",
     "egg-valparams": "^1.4.5",
+    "egg-view-assets": "^1.7.0",
+    "egg-view-nunjucks": "^2.3.0",
     "koa-is-json": "^1.0.0",
     "zlib": "^1.0.5"
   },
