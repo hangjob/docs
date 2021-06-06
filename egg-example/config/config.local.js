@@ -30,7 +30,7 @@ module.exports = appInfo => {
                 // 端口号
                 port: '3306',
                 // 用户名
-                user: 'root2', // root2 itnavs
+                user: 'itnavs', // root2 itnavs
                 // 密码
                 password: '123456',
                 // 数据库名
@@ -47,6 +47,7 @@ module.exports = appInfo => {
             mapping: {
                 '.html': 'nunjucks' //左边写成.html后缀，会自动渲染.html文件
             },
+            cache:false
         }
     };
 };

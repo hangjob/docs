@@ -1,3 +1,8 @@
+### 框架内置Multipart
+请求 body 除了可以带参数之外，还可以发送文件，一般来说，浏览器上都是通过 Multipart/form-data 格式发送文件的，框架通过内置 Multipart 插件来支持获取用户上传的文件，我们为你提供了两种方式：
+
+### 编写html
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,15 +30,15 @@
     $('button').click(function(){
         var files = $('#avatar').prop('files');
         var data = new FormData();
-        data.append('file', files[0]);
-        console.log(files)
+        data.append('avatar', files[0]);
+        console.log(data)
         $.ajax({
             url: '/view/upload',
             type: 'POST',
             headers:{
                 'x-csrf-token': getCookie("csrfToken"), // 前后端不分离的情况加每次打开客户端，egg会直接在客户端的 Cookie 中写入密钥 ，密钥的 Key 就是 'scrfToken' 这个字段，所以直接获取就好了
             },
-            data: data,
+            data: {a:1},
             cache: false,
             processData: false,
             contentType: false,
@@ -45,3 +50,4 @@
 </script>
 </body>
 </html>
+```
