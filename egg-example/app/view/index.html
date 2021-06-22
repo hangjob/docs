@@ -11,18 +11,20 @@
 <form>
     <input type="file" id="avatar" name="avatar">
     <button type="button">保存</button>
+    <p> {{title}} </p>
 </form>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-form@4.3.0/dist/jquery.form.min.js"></script>
 <script>
-    function getCookie(name){
-        var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
-        if(arr=document.cookie.match(reg))
+    function getCookie(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg))
             return unescape(arr[2]);
         else
             return null;
     }
-    $('button').click(function(){
+
+    $('button').click(function () {
         var files = $('#avatar').prop('files');
         var data = new FormData();
         data.append('file', files[0]);
@@ -30,14 +32,14 @@
         $.ajax({
             url: '/view/upload',
             type: 'POST',
-            headers:{
+            headers: {
                 'x-csrf-token': getCookie("csrfToken"), // 前后端不分离的情况加每次打开客户端，egg会直接在客户端的 Cookie 中写入密钥 ，密钥的 Key 就是 'scrfToken' 这个字段，所以直接获取就好了
             },
             data: data,
             cache: false,
             processData: false,
             contentType: false,
-            error:function (err) {
+            error: function (err) {
                 console.log(err)
             }
         });

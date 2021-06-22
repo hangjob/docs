@@ -30,7 +30,7 @@ module.exports = appInfo => {
                 // 端口号
                 port: '3306',
                 // 用户名
-                user: 'itnavs', // root2 itnavs
+                user: 'root2', // root2 itnavs
                 // 密码
                 password: '123456',
                 // 数据库名

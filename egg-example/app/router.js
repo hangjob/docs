@@ -7,6 +7,7 @@ module.exports = app => {
     router.get('/create', controller.home.create);
     router.get('/customValidate', controller.home.customValidate);
     router.get('/view/index',responseTime, controller.view.index);
+    router.get('/view/temp', controller.view.temp);
     router.all('/view/upload', controller.view.upload);
     router.get('/view/detail/:id', controller.view.detail);
     router.get(/^\/package\/([\w-.]+\/[\w-.]+)$/, controller.home.package);

@@ -9,7 +9,7 @@ class HomeController extends baseController {
 
     async user() {
         const {ctx} = this;
-        ctx.body = `接受参数params ${ctx.params.id}，接受参数query ${ctx.query.id}`;
+        ctx.body = `接受参数params ${ctx.params.id}，接受参数query ${ctx.query.id},${ctx.query.name}`;
     }
 
     async userInfo() {
