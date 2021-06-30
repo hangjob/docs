@@ -7,4 +7,7 @@ exports.view = {
         '.js': 'assets',
     },
 };
-exports.middleware = ['gzip']
+exports.middleware = ['responseTime']
+exports.responseTime = {
+    data: '给中间件传递的参数！'
+}
