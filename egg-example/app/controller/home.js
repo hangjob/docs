@@ -55,6 +55,13 @@ class HomeController extends baseController {
         ctx.status = 200;
     }
 
+    // 调用service
+    async info() {
+        const {ctx} = this;
+        const userId = ctx.params.id;
+        const userInfo = await ctx.service.user.find(userId);
+        ctx.body = userInfo;
+    }
 }
 
 module.exports = HomeController;

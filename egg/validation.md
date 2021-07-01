@@ -28,19 +28,23 @@ module.exports = appInfo => {
 ### 使用验证规则
 
 ```javascript
-async
-create()
-{
-    const {ctx, service} = this;
-    const createRule = {
-        title: {type: 'string', required: true, desc: '标题不能为空，长度大于5小于10', range: {min: 5, max: 10,}},
-        content: {type: 'string', required: false},
-    };
-    // 校验参数
-    ctx.validate(createRule);
-    console.log(ctx.paramErrors)
+const {baseController} = require('./baseController.js');
 
+class HomeController extends baseController {
+    async create() {
+        const {ctx, service} = this;
+        const createRule = {
+            title: {type: 'string', required: true, desc: '标题不能为空，长度大于5小于10', range: {min: 5, max: 10,}},
+            content: {type: 'string', required: false},
+        };
+        // 校验参数
+        ctx.validate(createRule);
+        console.log(ctx.paramErrors)
+
+    }
 }
+
+module.exports = HomeController;
 ```
 
 > 输出
@@ -71,19 +75,23 @@ create()
 #### 更改验证参数
 
 ```javascript
-async
-create()
-{
-    const {ctx, service} = this;
-    const createRule = {
-        title: {type: 'string', required: true, desc: '标题不能为空，长度大于5小于10', range: {min: 5, max: 10,}},
-        content: {type: 'string', required: false},
-    };
-    // 校验参数
-    ctx.validate(createRule, ctx.body); // 追加一个参数
-    console.log(ctx.paramErrors)
+const {baseController} = require('./baseController.js');
 
+class HomeController extends baseController {
+    async create() {
+        const {ctx, service} = this;
+        const createRule = {
+            title: {type: 'string', required: true, desc: '标题不能为空，长度大于5小于10', range: {min: 5, max: 10,}},
+            content: {type: 'string', required: false},
+        };
+        // 校验参数
+        ctx.validate(createRule, ctx.body); // 追加一个参数
+        console.log(ctx.paramErrors)
+
+    }
 }
+
+module.exports = HomeController;
 ```
 
 > 当参数不在body上时，需要更改验证参数<br/>
@@ -188,10 +196,11 @@ class HomeController extends baseController {
     }
 }
 ```
->输入：http://127.0.0.1:7001/customValidate?name=测试 <br/>
+
+> 输入：http://127.0.0.1:7001/customValidate?name=测试 <br/>
 > 返回结果：{"message":"Validation Failed","code":"invalid_param","errors":[{"message":"用户名的长度应该在6-20之间","code":"invalid","field":"name"}]}
 
->输入：http://127.0.0.1:7001/customValidate?name=测试测试测试测试试试 <br/>
+> 输入：http://127.0.0.1:7001/customValidate?name=测试测试测试测试试试 <br/>
 > 返回结果：验证通过
 
 以上[参考](https://www.shuzhiduo.com/A/WpdKQM4NJV/)

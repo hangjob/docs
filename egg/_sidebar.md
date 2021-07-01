@@ -14,7 +14,6 @@
   * [静态资源](/egg/static/resource.md)
 * 控制器
   * [创建控制器](/egg/controller/create.md)
-  * [参数校验](zh-cn/quickstart.md)
   * [调佣serves](/egg/serves/serves.md)
 * 中间件
   * [创建中间件](/egg/middleware/middleware.md)
