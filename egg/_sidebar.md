@@ -14,6 +14,6 @@
   * [静态资源](egg/static_resource.md)
 * 控制器
   * [创建控制器](egg/controller_create.md)
-  * [调佣serves](egg/serves_serves.md)
+  * [调用serves](egg/serves_serves.md)
 * 中间件
   * [创建中间件](egg/middleware.md)
