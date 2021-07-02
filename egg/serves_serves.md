@@ -91,7 +91,7 @@ module.exports = appInfo => {
 
 新建表，并造两条数据
 
-![1](../../assets/img/1.png)
+![1](../assets/img/1.png)
 
 ### 调用
 
