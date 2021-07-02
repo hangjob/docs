@@ -26,7 +26,6 @@
         var files = $('#avatar').prop('files');
         var data = new FormData();
         data.append('file', files[0]);
-        console.log(files)
         $.ajax({
             url: '/view/upload',
             type: 'POST',
@@ -37,6 +36,9 @@
             cache: false,
             processData: false,
             contentType: false,
+            success:function(res){
+                console.log(res.result)
+            },
             error:function (err) {
                 console.log(err)
             }

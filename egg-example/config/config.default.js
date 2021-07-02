@@ -5,6 +5,10 @@ exports.logger = {
 exports.view = {
     mapping: {
         '.js': 'assets',
-    },
+    }
 };
+exports.static = {
+    maxAge:0
+};
+exports.serverTimeout = 0
 exports.middleware = ['gzip']

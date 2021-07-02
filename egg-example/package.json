@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "await-stream-ready": "^1.0.1",
+    "dayjs": "^1.10.5",
     "egg": "^2.29.4",
     "egg-mysql": "^3.0.0",
     "egg-validate": "^2.0.2",
