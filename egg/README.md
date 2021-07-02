@@ -20,3 +20,5 @@
 
 Egg.js教程是我用`docsify`第一次编写，在用这个插件的过程也遇到问题，
 [详情请看](ydocsify/)
+
+更新时间：{docsify-updated}

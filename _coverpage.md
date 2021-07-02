@@ -1,4 +1,4 @@
-![logo](https://docsify.js.org/_media/icon.svg)
+![logo](./assets/img/logo.jpg)
 
 # 羊先生
 
