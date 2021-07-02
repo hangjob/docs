@@ -8,7 +8,10 @@ module.exports = appInfo => {
         logger: {
             dir: path.join(appInfo.baseDir, 'logs'), // baseDir:应用代码的目录
         },
-        middleware: ['gzip'],
+        middleware: ['gzip','responseTime'],
+        responseTime:{
+            data: '给中间件传递的参数！'
+        },
         // 配置 gzip 中间件的配置
         gzip: {
             threshold: 1024, // 小于 1k 的响应体不压缩
@@ -30,7 +33,7 @@ module.exports = appInfo => {
                 // 端口号
                 port: '3306',
                 // 用户名
-                user: 'itnavs', // root2 itnavs
+                user: 'root2', // root2 itnavs
                 // 密码
                 password: '123456',
                 // 数据库名

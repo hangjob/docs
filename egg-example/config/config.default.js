@@ -7,8 +7,7 @@ exports.view = {
         '.js': 'assets',
     }
 };
-exports.static = {
-    maxAge:0
-};
-exports.serverTimeout = 0
-exports.middleware = ['gzip']
+exports.middleware = ['responseTime']
+exports.responseTime = {
+    data: '给中间件传递的参数！'
+}

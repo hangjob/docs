@@ -13,7 +13,14 @@ class ViewController extends baseController {
     async index() {
         const {ctx} = this;
         await ctx.render('index', {
-            title: '嗨，我是羊先生'
+            title: '嗨，我是羊先生1111'
+        });
+    }
+
+    async temp() {
+        const {ctx} = this;
+        await ctx.render('temp', {
+            title: '嗨，2222'
         });
     }
 

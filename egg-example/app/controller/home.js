@@ -9,7 +9,7 @@ class HomeController extends baseController {
 
     async user() {
         const {ctx} = this;
-        ctx.body = `接受参数params ${ctx.params.id}，接受参数query ${ctx.query.id}`;
+        ctx.body = `接受参数params ${ctx.params.id}，接受参数query ${ctx.query.id},${ctx.query.name}`;
     }
 
     async userInfo() {
@@ -55,6 +55,13 @@ class HomeController extends baseController {
         ctx.status = 200;
     }
 
+    // 调用service
+    async info() {
+        const {ctx} = this;
+        const userId = ctx.params.id;
+        const userInfo = await ctx.service.user.find(userId);
+        ctx.body = userInfo;
+    }
 }
 
 module.exports = HomeController;
