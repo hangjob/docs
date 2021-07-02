@@ -15,6 +15,7 @@
 
 <body>
 <div id="app"></div>
+<div id="gitalk-container"></div>
 <script>
     // 搜索配置
     const search = {
@@ -51,11 +52,13 @@
         autoHeader: true,
         loadNavbar: true, // 加载顶部菜单
         routerMode: 'hash', // default: 'hash' history => nginx try_files $uri $uri/ /index.html;
+        // 复制
         copyCode: {
             buttonText: '复制',
             errorText: '出错啦',
             successText: '成功'
         },
+        // 字数
         count:{
             countable:true,
             fontsize:'0.9em',
