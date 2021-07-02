@@ -14,4 +14,4 @@
 *也擅长对项目进行工程化领域建设
 
 [点个赞吧](https://github.com/Hanxueqing/Douban-Movie.git)
-[开始吧](egg/index)
+[开始吧](egg/)
