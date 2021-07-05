@@ -15,12 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@mojs/player"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mojs/curve-editor"></script>
     <script>
-        const mojsCurve = new MojsCurveEditor({
-            name: 'bounce curve'
-        });
-
         const bouncyCircle = new mojs.Shape({
-            easing: mojsCurve.getEasing(),
             parent: '#bouncyCircle',
             shape: 'circle',
             fill: {
