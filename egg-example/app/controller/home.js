@@ -62,6 +62,16 @@ class HomeController extends baseController {
         const userInfo = await ctx.service.user.find(userId);
         ctx.body = userInfo;
     }
+
+    async addUser(){
+        const {ctx} = this;
+        console.log(ctx.model.User)
+        const result = await ctx.model.User.create({
+            name: '测试'+Math.random(),
+            pid: 99,
+        });
+        console.log(result)
+    }
 }
 
 module.exports = HomeController;

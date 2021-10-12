@@ -17,3 +17,5 @@
   * [调用serves](egg/serves_serves.md)
 * 中间件
   * [创建中间件](egg/middleware.md)
+* 数据库
+  * [egg-sequelize](egg/sequelize.md)

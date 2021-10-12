@@ -14,11 +14,13 @@
     "dayjs": "^1.10.5",
     "egg": "^2.29.4",
     "egg-mysql": "^3.0.0",
+    "egg-sequelize": "^6.0.0",
     "egg-validate": "^2.0.2",
     "egg-valparams": "^1.4.5",
     "egg-view-assets": "^1.7.0",
     "egg-view-nunjucks": "^2.3.0",
     "koa-is-json": "^1.0.0",
+    "mysql2": "^2.3.0",
     "zlib": "^1.0.5"
   },
   "devDependencies": {

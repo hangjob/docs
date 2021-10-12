@@ -1,7 +1,9 @@
+// https://eggjs.github.io/zh/guide/router.html
 module.exports = app => {
     const { router, controller, middleware } = app;
     const responseTime = middleware.responseTime({ headerKey: 'X-Time' }, app);
     router.get('/', controller.home.index);
+    router.get('/user/addUser', controller.home.addUser);
     router.get('/user/:id', controller.home.user);
     router.get('/info/:id', controller.home.info);
     router.get('/user/:id/:name', controller.home.userInfo);
