@@ -19,3 +19,4 @@
   * [创建中间件](egg/middleware.md)
 * 数据库
   * [egg-sequelize](egg/sequelize.md)
+  *[模型增删改查](egg/curd.md)
