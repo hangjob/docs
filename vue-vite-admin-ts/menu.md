@@ -2,6 +2,8 @@
 
 ### 添加菜单
 
+![img.png](img.png)
+
 前端表单字段名称
 
 ```ts
@@ -21,7 +23,55 @@ interface FormState {
 }
 ```
 
-数据库字段名称
+>字段介绍
+
+#### name-名称
+
+路由名称
+
+#### icon-图标
+
+显示菜单左侧的icon
+
+#### path-路由名称
+
+在浏览器地址栏url中展示的路由地址，比如：http://192.168.1.24:8290/#/home， `home`就是路由名称
+
+#### filePath-路由文件路径
+
+设置了路由名称后，如果不是iframe，或者外链那种，filePath指向的本地文件路径，比如：`src/web/views/category`
+
+#### httpFilePath-网络文件组件
+
+请求一个http网络组件，目前**还未实现**
+
+#### iframePath-内嵌页面
+
+设置一个http页面，用内嵌iframe打开
+
+#### pid-父级id
+
+如果设置了对应的pid，那么他父级就会变成目录
+
+#### keepAlive-缓存
+
+布尔值，设置是否缓存，注意页面组件需要设置name
+
+#### tabHidden-隐藏
+
+布尔值，设置是否在头部tab切换栏是否展示
+
+#### tabFix-固定
+
+布尔值，设置是否固定菜单，在头部tab栏上
+
+#### shows-显示
+
+布尔值，是否显示左侧菜单
+
+### 数据库字段
+
+![img_1.png](img_1.png)
 
 ```js
 return app.model.define('menu', {

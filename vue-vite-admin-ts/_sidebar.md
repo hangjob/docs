@@ -1,4 +1,8 @@
 * [开始](/vue-vite-admin-ts/README.md)
 * [后端服务](/vue-vite-admin-ts/egg.md)
+* [mock数据](/vue-vite-admin-ts/mock.md)
 * [web目录](/vue-vite-admin-ts/web.md)
 * [菜单配置](/vue-vite-admin-ts/menu.md)
+* [权限指令](/vue-vite-admin-ts/directives.md)
+* [网络请求](/vue-vite-admin-ts/http.md)
+* [ts配置](/vue-vite-admin-ts/ts.md)
