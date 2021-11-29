@@ -49,7 +49,25 @@ module.exports = app => {
     });
 };
 ```
->至此，后端服务已经部署完成，剩下的数据逻辑
+
+### 前端代理配置
+
+```js
+export default {
+    host: '0.0.0.0',
+    port: 8290,
+    https: false,
+    proxy: {
+        '^/api': {
+            target: 'http://127.0.0.1:7001',
+            changeOrigin: true,
+            rewrite: (path) => path.replace(/^\/api/, '')
+        }
+    }
+}
+```
+
+> 至此，后端服务已经部署完成，剩下的数据逻辑
 
 在这个vue-vite-admin-ts中后端服务，我写了一个完整的增删的改查，使用的`sequelize`
 ，它可以帮你很好的写sql查询语句，因为它全部帮你封装好了，我们只需要调用即可，比如简单的增删改查，复杂的点的关联查询，一对多，多对一，多对多，多表关联，查插件已经帮我们内置了，我们使用只需要配置关联字段即可

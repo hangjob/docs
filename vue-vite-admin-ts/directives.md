@@ -1,10 +1,11 @@
 ### 使用方式
 
 ```vue
-
-<a-button type="primary" v-auth="['zbdl,jgr']">zbdl，jgr有权限</a-button>
-<a-button type="primary" v-auth="['zj']">zj专家没有权限</a-button>
-<a-button type="primary" v-auth="['jgr']">jgr监管人有权限</a-button>
+<p v-auth="['client']">admin权限控制html标签是否展示</p>
+<a-button type="primary" v-auth="['admin']">admin管理员权限</a-button>
+<a-button type="primary" v-auth="['test']">test测试人员权限</a-button>
+<a-button type="primary" v-auth="['client']">client客户使用人员权限</a-button>
+<a-button type="primary" v-auth="['editor']">editor可编辑人员权限</a-button>
 ```
 
 ![img_2.png](img_2.png)
@@ -15,6 +16,11 @@
 import {App, Directive, DirectiveBinding} from 'vue'
 import store from "@/packages/store";
 
+
+const isButton = (el: Element) => {
+    return el.tagName.toLowerCase() === 'button';
+}
+
 // 权限指令
 function handlePermission(el: Element, binding: DirectiveBinding) {
     const {value, arg} = binding;
@@ -23,12 +29,18 @@ function handlePermission(el: Element, binding: DirectiveBinding) {
         const hasPermission = roles.some((role: any) => {
             return value.includes(role)
         })
+
         if (!hasPermission && arg) {
             return el.parentNode && el.parentNode.removeChild(el) // 条件不成立删除
         }
+
         if (!hasPermission) {
-            el.classList.add('ant-btn-dashed');
-            el.setAttribute("disabled", 'disabled');
+            if (isButton(el)) {
+                el.classList.add('ant-btn-dashed');
+                el.setAttribute("disabled", 'disabled');
+            } else {
+                el.parentNode && el.parentNode.removeChild(el)
+            }
         }
     } else {
         console.error('权限控制使用例子 v-auth="[\'admin\',\'editor\']"')

@@ -73,6 +73,40 @@ router.get('/more/304', function (req, res) {
 
 接口返回 304 状态码，对于默认的请求我们会输出一条错误信息。第二个请求中我们配置了自定义合法状态码规则，区间在 200 和 400 之间，这样就不会报错，而是可以正常输出响应对象。
 
+### 错误重连
+
+这里参考的是[axios请求超时,设置重新请求的完美解决方法](https://github.com/ssttm169/use-axios-well)，代码很简洁简单
+
+```js
+// 如果config不存在或没有设置重试选项，请拒绝
+if (!config || !config.retry) return Promise.reject(error.message);
+
+// 设置用于跟踪重试计数的变量
+config.__retryCount = config.__retryCount || 0;
+
+// 检查重试次数是否达到最大值
+if (config.__retryCount >= config.retry) return Promise.reject(error.message);
+
+// 增加重试次数
+config.__retryCount += 1;
+
+// 创建新的承诺来处理指数倒退
+const backoff = new Promise(function (resolve: any) {
+    setTimeout(function () {
+        resolve();
+    }, config.retryDelay);
+});
+
+// 返回promise，其中调用axios来重试请求
+return backoff.then(function () {
+    return http(config);
+});
+```
+
+### 完整封装
+
+[查看代码](https://github.com/hangjob/vue-vite-admin-ts/blob/master/src/packages/http/request.ts)
+
 > axios-config合并策略，传入的config优先级最高，会覆盖实列化默认的config
 
 ```ts
@@ -85,8 +119,9 @@ import {message as messageModel} from 'ant-design-vue';
 const CancelToken = axios.CancelToken
 const source = CancelToken.source()
 
-const http = axios.create({
-    baseURL: '/api',
+
+const http: any = axios.create({
+    baseURL: httpNetwork.baseURL,
     timeout: httpNetwork.requestTimeout,
     withCredentials: true,
     headers: {
@@ -94,6 +129,9 @@ const http = axios.create({
     },
     cancelToken: source.token
 })
+
+http.defaults.retry = httpNetwork.retry;
+http.defaults.retryDelay = httpNetwork.retryDelay;
 
 
 http.interceptors.request.use((config: any) => {
@@ -105,7 +143,7 @@ http.interceptors.request.use((config: any) => {
         }
     }
     return config;
-}, (error) => {
+}, (error: any) => {
     return Promise.reject(error)
 })
 
@@ -120,12 +158,33 @@ http.interceptors.response.use((res: any) => {
     } else {
         return Promise.reject(res.data);
     }
-}, async (error) => {
-    if (error.response) {
-        const {status, config} = error.response;
-        console.log(status, config.url)
-    }
-    return Promise.reject(error.message);
+}, async (error: any) => {
+
+    const {config} = error.response || {};
+
+    // 如果config不存在或没有设置重试选项，请拒绝
+    if (!config || !config.retry) return Promise.reject(error.message);
+
+    // 设置用于跟踪重试计数的变量
+    config.__retryCount = config.__retryCount || 0;
+
+    // 检查重试次数是否达到最大值
+    if (config.__retryCount >= config.retry) return Promise.reject(error.message);
+
+    // 增加重试次数
+    config.__retryCount += 1;
+
+    // 创建新的Promise来处理
+    const backoff = new Promise(function (resolve: any) {
+        setTimeout(function () {
+            resolve();
+        }, config.retryDelay);
+    });
+
+    // 返回promise，其中调用axios来重试请求
+    return backoff.then(function () {
+        return http(config);
+    });
 })
 
 // 包装url

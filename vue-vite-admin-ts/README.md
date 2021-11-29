@@ -8,6 +8,50 @@
 
 [Github](https://github.com/hangjob/vue-vite-admin-ts)
 
+### 安装依赖
+
+!>node.js版本需要大于12，vite的编译环境是12以上的版本
+
+```bash
+npm i
+```
+
+#### 启动应用
+
+```bash
+npm run serve
+```
+
+### 默认应用文件
+
+默认拉取项目完成后，目录下会包含两个入口文件
+
+```js
+// vite.config.ts
+build.rollupOptions = {
+    input: {
+        web: path.resolve(__dirname, 'index.html'),
+        lib: path.resolve(__dirname, 'lib.html')
+    }
+}
+```
+
+在这里的，我个人认为，建议vite把key(web、lib)可也阔以映射成页面路径，从而可以指向共同的页面，然后在不同的引入main.ts
+
+> 该项目是多页面应用文件，默认打开的是index.html，另外个是lib.html
+
+比如：启动完成之后
+
+http://localhost:8290 === http://localhost:8290/index.html
+
+http://localhost:8290/lib.html
+
+!>注意：http://localhost:8290 这样访问需要提供后端服务才能打开
+
+🙂
+
+>http://localhost:8290/lib.html 不需要后端服务也能打开
+
 ### 项目结构
 
 ```
@@ -49,42 +93,4 @@
 |── vite.config.ts                           // vite配置
 |── lib.html                                 // lib.html
 |── index.html                               // index.html
-``` 
-
-### 安装依赖
-
-!>node.js版本需要大于12，vite的编译环境是12以上的版本
-
-```bash
-npm i
 ```
-
-#### 启动应用
-
-```bash
-npm run serve
-```
-
-### 默认应用文件
-
-默认拉取项目完成后，目录下会包含两个入口文件
-
-```js
-// vite.config.ts
-build.rollupOptions = {
-    input: {
-        web: path.resolve(__dirname, 'index.html'),
-        lib: path.resolve(__dirname, 'lib.html')
-    }
-}
-```
-在这里的，我个人认为，建议vite把key(web、lib)可也阔以映射成页面路径，从而可以指向共同的页面，然后在不同的引入main.ts
-
-> 该项目是多页面应用文件，默认打开的是index.html，另外个是lib.html
-
-比如：启动完成之后 
-
-http://localhost:8290
-
-http://localhost:8290/lib.html
-
