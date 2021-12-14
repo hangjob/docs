@@ -1,3 +1,4 @@
+
 > 此目录文件是可以更改的,其实也是演示目录
 
 ```ts
@@ -5,19 +6,19 @@ import {Component, createApp} from 'vue'
 import App from './App.vue'
 import install, {$pluginType} from '@/packages/install' // 引入依赖包
 import {apiAppRouter} from '@/packages/service/app'
-import store from '@/web/store/index';
+import store from '@/example/store/index';
 
 const app = createApp(App)
 apiAppRouter().then((res: any) => {
 
-    const locas: Record<string, Component> = import.meta.globEager("/src/web/views/**/*.vue")
+    const locas: Record<string, Component> = import.meta.globEager("/src/example/views/**/*.vue")
     const $plugin: $pluginType = {
         router: {views: [...res], external: locas},
         store: {
             module: store
         }
     }
-    install(app, $plugin)
+    app.use(install, $options).mount('#app')
 })
 ```
 
@@ -28,7 +29,7 @@ import {createApp} from 'vue'
 import App from './App.vue'
 import install from '@/packages/install' // 引入依赖包
 const app = createApp(App)
-install(app)
+app.use(install).mount('#app')
 ```
 
 ### 说明
@@ -40,7 +41,7 @@ apiAppRouter是通过接口获取用户菜单，然后传递给依赖包，然�
 所以就有了这句话
 
 ```ts
-const locas: Record<string, Component> = import.meta.globEager("/src/web/views/**/*.vue")
+const locas: Record<string, Component> = import.meta.globEager("/src/example/views/**/*.vue")
 ```
 
 #### install
