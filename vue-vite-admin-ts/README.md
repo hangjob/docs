@@ -83,11 +83,15 @@ http://localhost:8290/lib.html
 
 已完成功能
 
-✅ 使用Vue3
+✅ 使用Vue 3
 
-✅ 基于Vite2.6
+✅ 使用Vuex 4.x
 
-✅ 基于 Ant Design Vue
+✅ 使用Vue-router 4.x
+
+✅ 基于Vite 2.6
+
+✅ 基于Ant Design Vue
 
 ✅ 整体框架响应式布局
 
@@ -105,13 +109,19 @@ http://localhost:8290/lib.html
 
 ✅ 基于axios封装post，get，all，upload，download
 
+✅ http错误重连
+
+✅ 组件权限指令封装
+
 ✅ tsx构建全局组件
 
 ✅ http网络组件(vue3新特性)
 
 ✅ 菜单管理，包含增、删、改、查，菜单是缓存、是否固定、是否隐藏(但展示)、是否隐藏等待 具体功能,查看文档
 
-✅ 包含富文本编辑器，文件打印，图表预览
+✅ 包含富文本编辑器，文件打印，图表预览，动画组件，状态详情组件等等
+
+✅ 支持多页面应用
 
 ✅ 支持iframe内嵌
 
@@ -123,13 +133,25 @@ http://localhost:8290/lib.html
 
 ✅ 滚动条优化
 
-✅ mock数据
+✅ 骨架屏组件预览
 
 ✅ 基于封装loadsh深层遍历、查找、无规律查找
 
 ✅ 基于mitt全局通信
 
 ✅ 基于vxe-table解决万量级表格渲染
+
+✅ Mock数据
+
+✅ Egg.js后端服务，具体操作看文档
+
+✅ sequelize模型增删改查
+
+✅ Eslint代码检查
+
+✅ 开发编辑器全局配置
+
+✅ 打包压缩处理Gzip
 
 ### 待完成
 
