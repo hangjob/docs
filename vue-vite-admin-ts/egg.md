@@ -33,8 +33,12 @@ cd /vue-vite-admin-ts/egg  // 进入这个目录
 ```
 
 ```bash
-npm run serve
+npm run dev // 启动服务
+
+npm run fake // 生成测试数据
 ```
+[具体看下这个](https://github.com/hangjob/vue-vite-admin-ts/issues/1)
+
 
 > 访问:http://127.0.0.1:7001，比如我启动完成后的地址，会在命令行提示出来
 
